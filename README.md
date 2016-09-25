@@ -18,6 +18,14 @@ This toolchain has been created and is used in the first place to publish
 - [Calibre]
 - [Ghostscript]
 
+On OS X I needed to install
+
+    brew install asciidoc
+    easy_install dblatex
+
+and make a patch (only for `book.pdf` for now) to not use `xmllint`, because OS
+X ships with its own version.
+
 ## Usage
 
 The book content should be written in the `book.txt` source file. Once you've
