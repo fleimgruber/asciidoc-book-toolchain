@@ -8,7 +8,7 @@ release: $(BOOKNAME).html $(BOOKNAME).pdf $(BOOKNAME).epub $(BOOKNAME).mobi Make
 
 # To debug a2x, add -v and -k to keep files
 %.pdf: %.txt Makefile style-dblatex.xsl style-dblatex.sty
-	a2x -fpdf -dbook --dblatex-opts="-d -p style-dblatex.xsl -b xetex --texstyle=style-dblatex.sty" $<
+	a2x --no-xmllint -fpdf -dbook --dblatex-opts="-d -p style-dblatex.xsl -b xetex --texstyle=style-dblatex.sty" $<
 
 $(BOOKNAME).printable.pdf: $(BOOKNAME).txt Makefile style-dblatex.printable.xsl style-dblatex.printable.sty
 	test ! -f $(BOOKNAME).pdf || mv -f $(BOOKNAME).pdf $(BOOKNAME).moved.pdf
