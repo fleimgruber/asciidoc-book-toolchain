@@ -18,13 +18,26 @@ This toolchain has been created and is used in the first place to publish
 - [Calibre]
 - [Ghostscript]
 
-On OS X I needed to install
+## OS X instructions
+
+This was tested on Python 2.7.12 and OS X 10.10.5
 
     brew install asciidoc
     easy_install dblatex
 
-and make a patch (only for `book.pdf` for now) to not use `xmllint`, because OS
-X ships with its own version.
+and patch make targets containing `a2x` to not use `xmllint` via `--no-xmllint`,
+because OS X ships with its own incompatible version of it.
+
+Put
+
+    /usr/local/Cellar/asciidoc/8.6.9_1/etc/asciidoc/dblatex/asciidoc-dblatex.sty
+
+into `~/Library/texmf/tex/xelatex`, because it was not picked up during
+dblatex's xelatex run.
+
+Needed fonts
+https://www.fontsquirrel.com/fonts/Liberation-Sans
+https://www.fontsquirrel.com/fonts/source-sans-pro
 
 ## Usage
 
